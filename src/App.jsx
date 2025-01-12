@@ -1,35 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Example from "./components/menu";
+import { TypeAnimation } from "react-type-animation";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      <Example />
+      <div className="text-1xl text-slate-500 bold font-bold p-4">
+        <TypeAnimation
+          sequence={[
+            "Seu e-commerce de confiança. Encontre o que você precisa aqui.",
+            2000,
+            "Frete grátis para todo o Brasil! Não perca essa oportunidade.",
+            2000,
+            "Ofertas imperdíveis! Aproveite descontos incríveis por tempo limitado.",
+            2000,
+          ]}
+          wrapper="span"
+          speed={70}
+          repeat={Infinity}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
