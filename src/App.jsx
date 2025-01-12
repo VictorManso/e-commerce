@@ -18,10 +18,23 @@ function App() {
     };
   }, []);
 
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to("#texto-tenis", {
+      duration: 3,
+      x: 0,
+      opacity: 1,
+    });
+
+    return () => {
+      gsap.killTweensOf("#texto-tenis");
+    };
+  }, []);
+
   return (
-    <div>
+    <div className="bg-slate-700">
       <Example />
-      <div className="text-1xl text-slate-500 bold font-bold p-4 text-center">
+      <div className=" min-h-40 text-2xl text-slate-200 bold font-bold p-4 text-center content-center">
         <TypeAnimation
           sequence={[
             "Seu e-commerce de confiança. Encontre o que você precisa aqui.",
@@ -38,20 +51,20 @@ function App() {
       </div>
 
       <div className="flex flex-col sm:flex-row items-center">
-        <div className="m-8">
+        <div className="m-8  place-items-center ">
           <img
-            className=" transform: -translate-x-full opacity-0 w-50 border-solid border-2 border-gray-500 rounded-3xl shadow-2xl"
+            className="w-full transform: -translate-x-full opacity-0 rounded-3xl shadow-2xl"
             src="./src/assets/images/tenis.png"
             id="tenis"
           />
         </div>
 
-        <div className="m-8">
-          <h2 className="">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni
-            officiis ab dolorem vitae sit esse dolor ipsum voluptatem quae,
-            dignissimos accusantium molestias et dicta distinctio nobis nulla
-            suscipit placeat doloribus.
+        <div className="m-8 w-full">
+          <h2
+            className="transform: translate-x-full font-bold text-4xl text-center align-middle text-slate-200"
+            id="texto-tenis"
+          >
+            Tênis Air Jordan 1 High Chicago <br /> "Lost and Found"
           </h2>
         </div>
       </div>
