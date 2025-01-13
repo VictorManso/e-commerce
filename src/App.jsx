@@ -14,8 +14,7 @@ function App() {
         duration: 2,
         x: 0,
         opacity: 1,
-        filter: "blur(0px)",
-        filter: "drop-shadow(2px 4px 6px)",
+        filter: "blur(0px) drop-shadow(2px 4px 6px)",
       });
 
       gsap.to("#tennis-text", {
