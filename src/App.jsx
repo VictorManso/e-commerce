@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { gsap } from "gsap";
 import Example from "./components/menu";
 import { TypeAnimation } from "react-type-animation";
-import { CalculatorIcon, ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
 function App() {
   useEffect(() => {
