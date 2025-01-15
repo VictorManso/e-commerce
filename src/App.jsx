@@ -59,7 +59,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-slate-300">
+    <div className="">
       <Example />
       <div className="min-h-40 text-2xl text-slate-600 bold font-bold p-4 text-center content-center">
         <TypeAnimation
@@ -79,7 +79,7 @@ function App() {
 
       <div
         id="banner"
-        className=" -translate-x-full  opacity-0 flex flex-col sm:flex-row items-center m-8 rounded-lg bg-gradient-to-r from-slate-300 to-red-800 shadow-xl"
+        className=" -translate-x-full  opacity-0 flex flex-col sm:flex-row items-center m-8 rounded-lg bg-gradient-to-tr from-blue-300 to-green-500  shadow-xl"
       >
         <div className="w-full">
           <img
@@ -91,13 +91,13 @@ function App() {
 
         <div className="m-4 w-full place-items-center">
           <h2
-            className="font-bold text-center p-4 text-4xl align-middle text-slate-200 opacity-0 translate-x-full blur-md"
+            className="font-bold text-center p-4 text-4xl align-middle text-slate-100 opacity-0 translate-x-full blur-md"
             id="tennis-text"
           >
             Air Jordan Chicago
           </h2>
           <button
-            className="bg-slate-300 shadow-2xl flex m-4 font-bold text-green-800  items-center p-4 rounded-lg text-2xl text-center opacity-0 translate-x-full blur-md"
+            className="bg-gradient-to-tr from-blue-300 to-green-600 shadow-2xl flex m-4 font-bold text-slate-100  items-center p-4 rounded-lg text-2xl text-center opacity-0 translate-x-full blur-md"
             id="button-banner"
           >
             <ShoppingCartIcon className="w-8 h-8 mr-4" /> Add to Cart
@@ -106,7 +106,9 @@ function App() {
       </div>
 
       <div>
-        <h1 className="text-center text-4xl font-bold">Carousel</h1>
+        <h1 className="text-center text-4xl font-bold text-amber-500 p-2">
+          OFERTAS
+        </h1>
       </div>
 
       <Carousel />

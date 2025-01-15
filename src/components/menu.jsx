@@ -47,9 +47,7 @@ export default function Example() {
             </DisclosureButton>
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex shrink-0 items-center">
-              <BuildingStorefrontIcon class="h-6 w-6 text-gray-500" />
-            </div>
+            <div className="flex shrink-0 items-center"></div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 {navigation.map((item) => (

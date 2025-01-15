@@ -1,3 +1,4 @@
+import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import React, { useState } from "react";
 
 function Carousel() {
@@ -5,27 +6,27 @@ function Carousel() {
   const cards = [
     {
       id: 1,
-      img: "./src/assets/images/tenis.png",
-      title: "Tennis name",
-      description: "Awesome tennis",
+      img: "./src/assets/images/tennis1.png",
+      title: "Nike Air Jordan 1",
+      description: "$ 400,00",
     },
     {
       id: 2,
-      img: "./src/assets/images/tenis.png",
-      title: "Tennis name",
-      description: "Tennis description",
+      img: "./src/assets/images/tennis2.png",
+      title: "Nike Air Jordan 1 Mid",
+      description: "$ 400,00",
     },
     {
       id: 3,
-      img: "./src/assets/images/tenis.png",
-      title: "Tennis name",
-      description: "Tennis description",
+      img: "./src/assets/images/tennis3.png",
+      title: "Nike Air Jordan 1",
+      description: "$ 400,00",
     },
     {
       id: 4,
-      img: "./src/assets/images/tenis.png",
-      title: "Tennis name",
-      description: "Tennis description",
+      img: "./src/assets/images/tennis4.png",
+      title: "Nike Air Jordan 1",
+      description: "$ 400,00",
     },
   ];
 
@@ -40,26 +41,29 @@ function Carousel() {
   return (
     <div
       id="carousel"
-      className="relative m-4 flex w-full max-w-6xl mx-auto overflow-hidden "
+      className="relative flex w-full max-w-6xl mx-auto overflow-hidden place-content-center "
     >
       {/* Contêiner que move todos os cards juntos */}
       <div className=" w-full flex-shrink-0 flex">
         {cards.map((card) => (
           <div
             key={card.id}
-            className="w-full sm:w-2/5 lg:w-2/5 flex-shrink-0 p-4 flex transition-transform duration-500"
+            className="w-full place-content-center sm:w-1/2 lg:w-2/6 flex-shrink-0 p-4 flex transition-transform duration-500"
             style={{
               transform: `translateX(-${currentIndex * 100}%)`, // Move o contêiner dos cards
             }}
           >
-            <div className="m-4 bg-white rounded-lg shadow-lg p-6 text-center">
-              <img
-                className="w-full h-48 object-cover rounded-t-lg"
-                src={card.img}
-                alt="tenis"
-              />
-              <h1 className="m-4">{card.title}</h1>
-              <p className="m-4">{card.description}</p>
+            <div className="bg-gradient-to-bl from-slate-300 to-white rounded-lg shadow-lg p-2 m-4 text-center">
+              <img className="object-cover" src={card.img} alt="tenis" />
+              <h1 className="m-4 font-bold text-xl text-slate-700">
+                {card.title}
+              </h1>
+              <p className="m-4 font-bold text-slate-500 ">
+                {card.description}
+              </p>
+              <button className="font-bold bg-gradient-to-tr shadow-md from-blue-300 to-green-500 text-slate-100 p-2 m-2 rounded-md pl-8 pr-8">
+                Buy
+              </button>
             </div>
           </div>
         ))}
@@ -68,15 +72,15 @@ function Carousel() {
       {/* Botões de navegação */}
       <button
         onClick={prevCard}
-        className="m-4 absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full"
+        className="ml-4 absolute left-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-bl from-slate-500 to-slate-50 text-white p-2 rounded-md"
       >
-        {"<"}
+        <ChevronLeftIcon />
       </button>
       <button
         onClick={nextCard}
-        className="m-4 absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full"
+        className="mr-4 absolute right-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-br from-slate-500 to-slate-50 text-white p-2 rounded-md"
       >
-        {">"}
+        <ChevronRightIcon />
       </button>
     </div>
   );
