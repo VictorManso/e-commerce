@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import Example from "./components/menu";
 import { TypeAnimation } from "react-type-animation";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
+import Carousel from "./components/carousel";
 
 function App() {
   useEffect(() => {
@@ -108,54 +109,7 @@ function App() {
         <h1 className="text-center text-4xl font-bold">Carousel</h1>
       </div>
 
-      <div
-        id="carousel"
-        className=" m-4 relative flex w-full max-w-4xl mx-auto overflow-hidden bg-black place-content-center"
-      >
-        <div className=" carousel-inner  m-2 flex flex-row items-center bg-slate-400">
-          <div className="cards">
-            <img
-              className="w-full"
-              src="./src/assets/images/tenis.png"
-              alt="tenis"
-            />
-            <div className="text-cards ">
-              <h1 className="">Tennis name</h1>
-            </div>
-            <div className="paragraph-cards">
-              <p className="">Tennis description</p>
-            </div>
-          </div>
-
-          <div className=" cards">
-            <img
-              className="w-full"
-              src="./src/assets/images/tenis.png"
-              alt="tenis"
-            />
-            <div className="text-cards">
-              <h1 className="m-0">Tennis name</h1>
-            </div>
-            <div className="paragraph-cards">
-              <p className="m-0">Tennis description</p>
-            </div>
-          </div>
-
-          <div className=" cards">
-            <img
-              className="w-full"
-              src="./src/assets/images/tenis.png"
-              alt="tenis"
-            />
-            <div className="text-cards">
-              <h1 className="m-0">Tennis name</h1>
-            </div>
-            <div className="paragraph-cards">
-              <p className="m-0">Tennis description</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Carousel />
     </div>
   );
 }
