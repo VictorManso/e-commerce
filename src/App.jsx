@@ -61,7 +61,7 @@ function App() {
   return (
     <div className="">
       <Example />
-      <div className="min-h-40 text-2xl text-slate-600 bold font-bold p-4 text-center content-center">
+      <div className="min-h-24 text-xl text-slate-600 bold font-bold p-4 text-center content-center">
         <TypeAnimation
           sequence={[
             "Your trusted e-commerce. Find what you need here.",
@@ -79,7 +79,7 @@ function App() {
 
       <div
         id="banner"
-        className=" -translate-x-full  opacity-0 flex flex-col sm:flex-row items-center m-8 rounded-lg bg-gradient-to-tr from-blue-300 to-green-500  shadow-xl"
+        className=" -translate-x-full  opacity-0 flex flex-col sm:flex-row items-center m-6 rounded-lg bg-gradient-to-tr from-blue-300 to-green-500  shadow-xl"
       >
         <div className="w-full">
           <img
@@ -96,6 +96,10 @@ function App() {
           >
             Air Jordan Chicago
           </h2>
+          <p className=" text-center p-8 text-slate-100">
+            Ready to hit the streets with sophistication and style? The Air
+            Jordan Chicago is the right choice for you. Get yours now!
+          </p>
           <button
             className="bg-gradient-to-tr from-blue-300 to-green-600 shadow-2xl flex m-4 font-bold text-slate-100  items-center p-4 rounded-lg text-2xl text-center opacity-0 translate-x-full blur-md"
             id="button-banner"
@@ -106,8 +110,8 @@ function App() {
       </div>
 
       <div>
-        <h1 className="text-center text-4xl font-bold text-amber-500 p-2">
-          OFERTAS
+        <h1 className="italic text-center text-4xl font-bold text-amber-500 p-2">
+          OFFERS
         </h1>
       </div>
 
