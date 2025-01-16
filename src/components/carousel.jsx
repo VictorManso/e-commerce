@@ -1,30 +1,34 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import React, { useState } from "react";
+import tennis1 from "../assets/images/tennis1.png";
+import tennis2 from "../assets/images/tennis2.png";
+import tennis3 from "../assets/images/tennis3.png";
+import tennis4 from "../assets/images/tennis4.png";
 
 function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const cards = [
     {
       id: 1,
-      img: "./src/assets/images/tennis1.png",
+      img: tennis1,
       title: "Nike Air Jordan 1",
       description: "$ 400,00",
     },
     {
       id: 2,
-      img: "./src/assets/images/tennis2.png",
+      img: tennis2,
       title: "Nike Air Jordan 1 Mid",
       description: "$ 400,00",
     },
     {
       id: 3,
-      img: "./src/assets/images/tennis3.png",
+      img: tennis3,
       title: "Nike Air Jordan 1",
       description: "$ 400,00",
     },
     {
       id: 4,
-      img: "./src/assets/images/tennis4.png",
+      img: tennis4,
       title: "Nike Air Jordan 1",
       description: "$ 400,00",
     },

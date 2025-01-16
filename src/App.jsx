@@ -4,6 +4,7 @@ import Example from "./components/menu";
 import { TypeAnimation } from "react-type-animation";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import Carousel from "./components/carousel";
+import TennisBanner from "./assets/images/tenis.png";
 
 function App() {
   useEffect(() => {
@@ -84,7 +85,7 @@ function App() {
         <div className="w-full">
           <img
             className=" opacity-0 z-10  drop-shadow-2xl"
-            src="./src/assets/images/tenis.png"
+            src={TennisBanner}
             id="tenis"
           />
         </div>
