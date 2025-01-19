@@ -5,4 +5,8 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   base: "/e-commerce/",
+  server: {
+    host: true, // Permite conexões externas
+    port: 3000, // Porta para o servidor (pode ajustar)
+  },
 });

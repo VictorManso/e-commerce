@@ -75,12 +75,14 @@ function Carousel() {
 
       {/* Botões de navegação */}
       <button
+        title="btnLeft"
         onClick={prevCard}
         className="ml-4 absolute left-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-bl from-slate-500 to-slate-50 text-white p-2 rounded-md"
       >
         <ChevronLeftIcon />
       </button>
       <button
+        title="btnRight"
         onClick={nextCard}
         className="mr-4 absolute right-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-br from-slate-500 to-slate-50 text-white p-2 rounded-md"
       >

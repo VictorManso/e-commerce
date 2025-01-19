@@ -8,55 +8,37 @@ import TennisBanner from "./assets/images/tenis.png";
 
 function App() {
   useEffect(() => {
-    // Defina uma função para disparar quando a página estiver completamente carregada
-    const handleWindowLoad = () => {
-      gsap.registerPlugin();
+    gsap.registerPlugin();
 
-      gsap.set("#tenis", { x: "-100%", opacity: 0, filter: "blur(10px)" });
-      gsap.set("banner", { opacity: 0, filter: "blur(10px)" });
-      gsap.set("#texto-tenis", { x: "100%", opacity: 0, filter: "blur(10px)" });
-      gsap.set("#button-banner", {
-        x: "100",
-        opacity: 0,
-        filter: "blur(10px)",
-      });
+    gsap.set("#tennis", { x: "-100%", opacity: 0 });
+    gsap.set("#banner", { x: "-50%", opacity: 0 });
+    gsap.set("#tennis-text", { opacity: 0 });
+    gsap.set("#button-banner", { opacity: 0 });
 
-      gsap.to("#banner", {
-        duration: 2,
-        x: 0,
-        opacity: 1,
-        filter: "blur(0px)",
-      });
+    gsap.to("#banner", {
+      duration: 2,
+      opacity: 1,
+      x: 0,
+      ease: "power2",
+    });
 
-      gsap.to("#tenis", {
-        duration: 2,
-        x: 0,
-        opacity: 1,
-        filter: "blur(0px) drop-shadow(8px 10px 8px)",
-      });
+    gsap.to("#tennis", {
+      duration: 3,
+      delay: 0.5,
+      opacity: 1,
+      x: 0,
+      ease: "power2",
+    });
 
-      gsap.to("#tennis-text", {
-        duration: 2,
-        x: 0,
-        opacity: 1,
-        filter: "blur(0px)",
-      });
+    gsap.to("#tennis-text", {
+      duration: 5,
+      opacity: 1,
+    });
 
-      gsap.to("#button-banner", {
-        duration: 2,
-        x: 0,
-        opacity: 1,
-        filter: "blur(0px)",
-      });
-    };
-
-    // Adiciona o evento de load ao window
-    window.onload = handleWindowLoad;
-
-    return () => {
-      // Limpa o evento quando o componente é desmontado
-      window.onload = null;
-    };
+    gsap.to("#button-banner", {
+      duration: 2,
+      opacity: 1,
+    });
   }, []);
 
   return (
@@ -80,19 +62,20 @@ function App() {
 
       <div
         id="banner"
-        className=" -translate-x-full  opacity-0 flex flex-col sm:flex-row items-center m-6 rounded-lg bg-gradient-to-tr from-blue-300 to-green-500  shadow-xl"
+        className="   flex flex-col sm:flex-row items-center m-6 rounded-lg bg-gradient-to-tr from-blue-300 to-green-500  shadow-xl"
       >
         <div className="w-full">
           <img
-            className=" opacity-0 z-10  drop-shadow-2xl"
+            className="drop-shadow-custom"
             src={TennisBanner}
-            id="tenis"
+            id="tennis"
+            alt="tennis"
           />
         </div>
 
         <div className="m-4 w-full place-items-center">
           <h2
-            className="font-bold text-center p-4 text-4xl align-middle text-slate-100 opacity-0 translate-x-full blur-md"
+            className="font-bold text-center p-4 text-4xl align-middle text-slate-100 "
             id="tennis-text"
           >
             Air Jordan Chicago
@@ -102,7 +85,7 @@ function App() {
             Jordan Chicago is the right choice for you. Get yours now!
           </p>
           <button
-            className="bg-gradient-to-tr from-blue-300 to-green-600 shadow-2xl flex m-4 font-bold text-slate-100  items-center p-4 rounded-lg text-2xl text-center opacity-0 translate-x-full blur-md"
+            className="bg-gradient-to-tr from-blue-300 to-green-600 shadow-2xl flex m-4 font-bold text-slate-100  items-center p-4 rounded-lg text-2xl text-center "
             id="button-banner"
           >
             <ShoppingCartIcon className="w-8 h-8 mr-4" /> Add to Cart
