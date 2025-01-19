@@ -65,7 +65,7 @@ function Carousel() {
               <p className="m-4 font-bold text-slate-500 ">
                 {card.description}
               </p>
-              <button className="font-bold bg-gradient-to-tr shadow-md from-blue-300 to-green-500 text-slate-100 p-2 m-2 rounded-md pl-8 pr-8">
+              <button className="hover:scale-110 transition-all font-bold bg-gradient-to-tr shadow-md from-blue-300 to-green-500 text-slate-100 p-2 m-2 rounded-md pl-8 pr-8">
                 Buy
               </button>
             </div>
@@ -77,7 +77,7 @@ function Carousel() {
       <button
         title="btnLeft"
         onClick={prevCard}
-        className="ml-4 absolute left-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-bl from-slate-500 to-slate-50 text-white p-2 rounded-md"
+        className=" ml-4 absolute left-0 top-1/2 transform -translate-y-1/2 bg-gradient-to-bl from-slate-500 to-slate-50 text-white p-2 rounded-md"
       >
         <ChevronLeftIcon />
       </button>

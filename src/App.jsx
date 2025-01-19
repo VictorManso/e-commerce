@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { gsap } from "gsap";
-import Example from "./components/menu";
+import NavBar from "./components/NavBar";
 import { TypeAnimation } from "react-type-animation";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import Carousel from "./components/carousel";
@@ -43,7 +43,7 @@ function App() {
 
   return (
     <div className="">
-      <Example />
+      <NavBar />
       <div className="min-h-24 text-xl text-slate-600 bold font-bold p-4 text-center content-center">
         <TypeAnimation
           sequence={[
@@ -85,7 +85,7 @@ function App() {
             Jordan Chicago is the right choice for you. Get yours now!
           </p>
           <button
-            className="bg-gradient-to-tr from-blue-300 to-green-600 shadow-2xl flex m-4 font-bold text-slate-100  items-center p-4 rounded-lg text-2xl text-center "
+            className="hover:scale-110 transition-all bg-gradient-to-tr from-blue-300 to-green-600 shadow-2xl flex m-4 font-bold text-slate-100  items-center p-4 rounded-lg text-2xl text-center "
             id="button-banner"
           >
             <ShoppingCartIcon className="w-8 h-8 mr-4" /> Add to Cart
