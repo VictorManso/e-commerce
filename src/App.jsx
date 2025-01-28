@@ -73,7 +73,7 @@ function App() {
           />
         </div>
 
-        <div className="m-4 w-full place-items-center">
+        <div className="m-4 w-full flex flex-col items-center justify-center">
           <h2
             className="font-bold text-center p-4 text-4xl align-middle text-slate-100 "
             id="tennis-text"
@@ -85,7 +85,7 @@ function App() {
             Jordan Chicago is the right choice for you. Get yours now!
           </p>
           <button
-            className="hover:scale-110 transition-all bg-gradient-to-tr from-blue-300 to-green-600 shadow-2xl flex m-4 font-bold text-slate-100  items-center p-4 rounded-lg text-2xl text-center "
+            className="hover:scale-110 justify-center w-64 transition-all bg-gradient-to-tr from-blue-300 to-green-600 shadow-2xl flex m-4 font-bold text-slate-100  items-center p-4 rounded-lg text-2xl text-center "
             id="button-banner"
           >
             <ShoppingCartIcon className="w-8 h-8 mr-4" /> Add to Cart

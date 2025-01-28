@@ -1,20 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { CircleEllipsis, Search, ShoppingCart } from "lucide-react";
-import TennisBanner from "../assets/images/tenis.png";
 
 function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navRef = useRef(null); // Referência para a navbar
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleClickOutside = (event) => {
+    // Verifica se o clique foi fora da navbar
+    if (navRef.current && !navRef.current.contains(event.target)) {
+      setIsMenuOpen(false); // Fecha o menu
+    }
+  };
+
+  useEffect(() => {
+    // Adiciona o listener para detectar cliques fora
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Remove o listener ao desmontar o componente
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="pt-[calc(4rem+10px)]">
-      <div className="fixed justify-between top-0 flex items-center z-10 bg-white w-full shadow-md text-slate-600 text-lg p-4">
+      <div
+        ref={navRef} // Referência para a navbar
+        className="fixed justify-center top-0 flex items-center z-10 bg-white w-full shadow-md text-slate-600 text-lg p-4"
+      >
         <div
           id="btnNavbar"
-          className="hover:cursor-pointer  sm:hidden absolute p-1 top-3 right-2"
+          className="hover:cursor-pointer sm:hidden absolute p-1 top-4 right-2"
           onClick={toggleMenu}
         >
           <CircleEllipsis />
@@ -22,8 +42,8 @@ function NavBar() {
 
         {/* Menu principal */}
         <ul
-          className={`overflow-hidden transition-[max-height] duration-300 ease-in-out  sm:flex items-center gap-10 text-base ${
-            isMenuOpen ? "max-h-40" : "max-h-2"
+          className={`sm:flex items-center gap-4 mr-64 text-base ${
+            isMenuOpen ? "max-h-40" : "max-h-2 hidden"
           } sm:max-h-full sm:flex-row`}
         >
           <li className="hover:bg-emerald-500 rounded-md hover:text-white hover:cursor-pointer hover:shadow-md transition-all p-1">
@@ -39,13 +59,18 @@ function NavBar() {
             Offers
           </li>
         </ul>
-        <div className="flex gap-2 items-center">
+        <div
+          className={`flex gap-2 items-center ${
+            isMenuOpen ? "hidden" : "flex"
+          }`}
+        >
           <Search />
           <input
+            placeholder="Search here..."
             type="text"
-            className="border-slate-600 border-2 rounded-md p-2 w-56 h-8"
+            className="border-slate-600 border-2 rounded-md p-2 w-48 h-8"
           />
-          <ShoppingCart className="hover:scale-110 ml-10" />
+          <ShoppingCart className="hover:scale-110" />
         </div>
       </div>
     </div>
