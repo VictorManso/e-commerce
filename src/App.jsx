@@ -1,12 +1,26 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import NavBar from "./components/NavBar";
 import { TypeAnimation } from "react-type-animation";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import Carousel from "./components/carousel";
 import TennisBanner from "./assets/images/tenis.png";
+import { CarTaxiFrontIcon } from "lucide-react";
 
 function App() {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (item) => {
+    setCart((prevCart) => [...prevCart, item]);
+  };
+
+  const removeToCart = (item) => {
+    setCart((prevCart) =>
+      prevCart.filter((cartItem) => cartItem.id !== item.id)
+    );
+  };
+  const countCart = cart.length;
+
   useEffect(() => {
     gsap.registerPlugin();
 
@@ -43,7 +57,7 @@ function App() {
 
   return (
     <div className="">
-      <NavBar />
+      <NavBar cart={cart} countCart={countCart} />
       <div className="min-h-24 text-xl text-slate-600 bold font-bold p-4 text-center content-center">
         <TypeAnimation
           sequence={[
@@ -99,7 +113,7 @@ function App() {
         </h1>
       </div>
 
-      <Carousel />
+      <Carousel addToCart={addToCart} removeToCart={removeToCart} />
     </div>
   );
 }

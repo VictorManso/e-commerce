@@ -1,12 +1,13 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
-import React, { useState } from "react";
+import { useState, React } from "react";
 import tennis1 from "../assets/images/tennis1.png";
 import tennis2 from "../assets/images/tennis2.png";
 import tennis3 from "../assets/images/tennis3.png";
 import tennis4 from "../assets/images/tennis4.png";
 
-function Carousel() {
+function Carousel(props) {
   const [currentIndex, setCurrentIndex] = useState(0);
+
   const cards = [
     {
       id: 1,
@@ -47,14 +48,13 @@ function Carousel() {
       id="carousel"
       className="relative flex w-full max-w-6xl mx-auto overflow-hidden place-content-center "
     >
-      {/* Contêiner que move todos os cards juntos */}
       <div className=" w-full flex-shrink-0 flex">
         {cards.map((card) => (
           <div
             key={card.id}
             className="w-full place-content-center sm:w-1/2 lg:w-2/6 flex-shrink-0 p-4 flex transition-transform duration-500"
             style={{
-              transform: `translateX(-${currentIndex * 100}%)`, // Move o contêiner dos cards
+              transform: `translateX(-${currentIndex * 100}%)`,
             }}
           >
             <div className="bg-gradient-to-bl from-slate-300 to-white rounded-lg shadow-lg p-2 m-4 text-center">
@@ -65,7 +65,10 @@ function Carousel() {
               <p className="m-4 font-bold text-slate-500 ">
                 {card.description}
               </p>
-              <button className="hover:scale-110 transition-all font-bold bg-gradient-to-tr shadow-md from-blue-300 to-green-500 text-slate-100 p-2 m-2 rounded-md pl-8 pr-8">
+              <button
+                onClick={() => props.addToCart(card)}
+                className="hover:scale-110 transition-all font-bold bg-gradient-to-tr shadow-md from-blue-300 to-green-500 text-slate-100 p-2 m-2 rounded-md pl-8 pr-8"
+              >
                 Buy
               </button>
             </div>
@@ -73,7 +76,6 @@ function Carousel() {
         ))}
       </div>
 
-      {/* Botões de navegação */}
       <button
         title="btnLeft"
         onClick={prevCard}

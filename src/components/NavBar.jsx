@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { CircleEllipsis, Search, ShoppingCart } from "lucide-react";
 
-function NavBar() {
+function NavBar(props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navRef = useRef(null); // Referência para a navbar
 
@@ -70,7 +70,12 @@ function NavBar() {
             type="text"
             className="border-slate-600 border-2 rounded-md p-2 w-48 h-8"
           />
-          <ShoppingCart className="hover:scale-110" />
+          <div className="group relative">
+            <ShoppingCart className="hover:scale-110" />
+            <span className="absolute text-center -top-2 -right-2 bg-emerald-500 text-white rounded-full w-4 h-4 text-xs ">
+              {props.countCart > 0 ? props.countCart : ""}
+            </span>
+          </div>
         </div>
       </div>
     </div>
