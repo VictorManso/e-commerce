@@ -26,6 +26,11 @@ function NavBar(props) {
     };
   }, []);
 
+  const qtyCart = props.itemsCart?.reduce(
+    (acumulator, item) => acumulator + (item.qty || 0),
+    0
+  );
+
   return (
     <div className="pt-[calc(4rem+10px)]">
       <div
@@ -70,10 +75,17 @@ function NavBar(props) {
             type="text"
             className="border-slate-600 border-2 rounded-md p-2 w-48 h-8"
           />
-          <div className="group relative">
-            <ShoppingCart className="hover:scale-110" />
-            <span className="absolute text-center -top-2 -right-2 bg-emerald-500 text-white rounded-full w-4 h-4 text-xs ">
-              {props.countCart > 0 ? props.countCart : ""}
+          <div
+            onClick={() => props.setIsCartOpen(!props.isCartOpen)}
+            className="relative hover:cursor-pointer"
+          >
+            <ShoppingCart className="hover:scale-110 active:scale-90 transition-all" />
+            <span
+              className={`${
+                qtyCart > 0 ? "bg-emerald-500" : "bg-transparent"
+              } absolute text-center -top-2 -right-2  text-white rounded-full w-4 h-4 text-xs`}
+            >
+              {qtyCart > 0 ? qtyCart : ""}
             </span>
           </div>
         </div>

@@ -9,6 +9,7 @@ import Cart from "./components/cart";
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const addToCart = (item) => {
     setCart((prevCart) => {
@@ -85,11 +86,18 @@ function App() {
 
   return (
     <div className="">
-      <NavBar cart={cart} countCart={countCart} />
+      <NavBar
+        countCart={countCart}
+        isCartOpen={isCartOpen}
+        setIsCartOpen={setIsCartOpen}
+        itemsCart={cart}
+      />
       <Cart
         itemsCart={cart}
         removeToCart={removeToCart}
         handleQtyChange={handleQtyChange}
+        isCartOpen={isCartOpen}
+        setIsCartOpen={setIsCartOpen}
       />
       <div className="min-h-24 text-xl text-slate-600 bold font-bold p-4 text-center content-center">
         <TypeAnimation
@@ -131,12 +139,6 @@ function App() {
             Ready to hit the streets with sophistication and style? The Air
             Jordan Chicago is the right choice for you. Get yours now!
           </p>
-          <button
-            className="hover:scale-110 justify-center w-64 transition-all bg-gradient-to-tr from-blue-300 to-green-600 shadow-2xl flex m-4 font-bold text-slate-100  items-center p-4 rounded-lg text-2xl text-center "
-            id="button-banner"
-          >
-            <ShoppingCartIcon className="w-8 h-8 mr-4" /> Add to Cart
-          </button>
         </div>
       </div>
 
