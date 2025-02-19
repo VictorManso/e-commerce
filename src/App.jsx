@@ -5,13 +5,41 @@ import { TypeAnimation } from "react-type-animation";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import Carousel from "./components/carousel";
 import TennisBanner from "./assets/images/tenis.png";
-import { CarTaxiFrontIcon } from "lucide-react";
+import Cart from "./components/cart";
 
 function App() {
   const [cart, setCart] = useState([]);
 
   const addToCart = (item) => {
-    setCart((prevCart) => [...prevCart, item]);
+    setCart((prevCart) => {
+      // Verifica se o item já está no carrinho
+      const itemExists = prevCart.find((cartItem) => cartItem.id === item.id);
+
+      if (itemExists) {
+        // Se o item já está no carrinho, atualiza a quantidade
+        return prevCart.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...cartItem, qty: cartItem.qty + 1 } // Aumenta a quantidade
+            : cartItem
+        );
+      } else {
+        // Se o item não está no carrinho, adiciona ele com qtde = 1
+        return [...prevCart, { ...item, qty: 1 }];
+      }
+    });
+  };
+
+  const handleQtyChange = (itemId, newQty) => {
+    // Verifica se a nova quantidade é válida
+    if (newQty < 1) return; // Evita que a quantidade seja menor que 1
+
+    setCart((prevCart) =>
+      prevCart.map((cartItem) =>
+        cartItem.id === itemId
+          ? { ...cartItem, qty: newQty } // Atualiza a quantidade do item
+          : cartItem
+      )
+    );
   };
 
   const removeToCart = (item) => {
@@ -58,6 +86,11 @@ function App() {
   return (
     <div className="">
       <NavBar cart={cart} countCart={countCart} />
+      <Cart
+        itemsCart={cart}
+        removeToCart={removeToCart}
+        handleQtyChange={handleQtyChange}
+      />
       <div className="min-h-24 text-xl text-slate-600 bold font-bold p-4 text-center content-center">
         <TypeAnimation
           sequence={[

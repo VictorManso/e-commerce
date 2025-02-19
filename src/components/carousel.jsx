@@ -13,25 +13,29 @@ function Carousel(props) {
       id: 1,
       img: tennis1,
       title: "Nike Air Jordan 1",
-      description: "$ 400,00",
+      price: 400,
+      qty: 0,
     },
     {
       id: 2,
       img: tennis2,
       title: "Nike Air Jordan 1 Mid",
-      description: "$ 400,00",
+      price: 400,
+      qty: 0,
     },
     {
       id: 3,
       img: tennis3,
       title: "Nike Air Jordan 1",
-      description: "$ 400,00",
+      price: 400,
+      qty: 0,
     },
     {
       id: 4,
       img: tennis4,
       title: "Nike Air Jordan 1",
-      description: "$ 400,00",
+      price: 400,
+      qty: 0,
     },
   ];
 
@@ -62,9 +66,7 @@ function Carousel(props) {
               <h1 className="m-4 font-bold text-xl text-slate-700">
                 {card.title}
               </h1>
-              <p className="m-4 font-bold text-slate-500 ">
-                {card.description}
-              </p>
+              <p className="m-4 font-bold text-slate-500 ">$ {card.price}</p>
               <button
                 onClick={() => props.addToCart(card)}
                 className="hover:scale-110 transition-all font-bold bg-gradient-to-tr shadow-md from-blue-300 to-green-500 text-slate-100 p-2 m-2 rounded-md pl-8 pr-8"
