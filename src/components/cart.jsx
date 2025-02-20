@@ -1,13 +1,11 @@
 import exitImg from "../assets/images/exit.png";
-import { useState } from "react";
 
 function Cart(props) {
   return (
     <div
       id="cart"
-      className={`${
-        props.isCartOpen ? "translate-x-0" : "translate-x-full"
-      } transition-all duration-1000 ease-in-out bg-slate-400/40 backdrop-blur-md w-2/3 overflow-y-auto fixed z-30 right-0 top-0 h-screen p-8`}
+      className={`${props.isCartOpen ? "translate-x-0" : "translate-x-full"}
+        transition-all duration-1000 ease-in-out bg-slate-400/40 backdrop-blur-md sm:w-2/3 w-full  overflow-y-auto fixed z-30 right-0 top-0 h-screen p-4 sm:p-8`}
     >
       <div
         onClick={() => props.setIsCartOpen(!props.isCartOpen)}
@@ -24,14 +22,18 @@ function Cart(props) {
             return (
               <li
                 key={item.id}
-                className="bg-white p-4 m-4 rounded-md flex justify-between"
+                className="bg-white place-items-center p-2 m-2  sm:p-4 sm:m-4 rounded-md flex justify-between"
               >
-                <img src={item.img} alt={item.title} className="w-28 h-28" />
-                <div className="flex items-center ">
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="sm:w-28 sm:h-28 w-14 h-14"
+                />
+                <div className="sm:text-xl text-sm flex items-center ">
                   <h2>{item.title}</h2>
                 </div>
-                <div className="flex flex-col place-items-center">
-                  <div className="w-max flex place-items-center gap-2">
+                <div className="sm:text-xl text-sm flex flex-col place-items-center">
+                  <div className="w-max flex place-items-center">
                     <label htmlFor={`qty-${item.id}`}>Quantity: </label>
                     <input
                       id={`qty-${item.id}`} // Garantir id único
@@ -45,7 +47,7 @@ function Cart(props) {
                   </div>
                   <h2>{item.price}</h2>
                   <button
-                    className="hover:scale-105 text-xs active:scale-100 transition-all font-bold bg-gradient-to-tr shadow-md from-blue-300 to-green-500 text-slate-100 p-2 m-2 rounded-md pl-8 pr-8"
+                    className="hover:scale-105 w-10 text-xs flex justify-center active:scale-100 transition-all font-bold bg-gradient-to-tr shadow-md from-blue-300 to-green-500 text-slate-100 p-2 m-2 rounded-md pl-8 pr-8"
                     onClick={() => props.removeToCart(item)}
                   >
                     Remove

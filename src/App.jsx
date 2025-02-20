@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import NavBar from "./components/NavBar";
 import { TypeAnimation } from "react-type-animation";
-import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import Carousel from "./components/carousel";
 import TennisBanner from "./assets/images/tenis.png";
 import Cart from "./components/cart";
@@ -48,7 +47,6 @@ function App() {
       prevCart.filter((cartItem) => cartItem.id !== item.id)
     );
   };
-  const countCart = cart.length;
 
   useEffect(() => {
     gsap.registerPlugin();
@@ -56,7 +54,6 @@ function App() {
     gsap.set("#tennis", { x: "-100%", opacity: 0 });
     gsap.set("#banner", { x: "-50%", opacity: 0 });
     gsap.set("#tennis-text", { opacity: 0 });
-    gsap.set("#button-banner", { opacity: 0 });
 
     gsap.to("#banner", {
       duration: 2,
@@ -77,17 +74,11 @@ function App() {
       duration: 5,
       opacity: 1,
     });
-
-    gsap.to("#button-banner", {
-      duration: 2,
-      opacity: 1,
-    });
   }, []);
 
   return (
     <div className="">
       <NavBar
-        countCart={countCart}
         isCartOpen={isCartOpen}
         setIsCartOpen={setIsCartOpen}
         itemsCart={cart}
